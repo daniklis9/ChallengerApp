@@ -124,9 +124,6 @@ class StartVC: UIViewController {
 //        })}
 //
     func animateForAddButton() {
-//        UIView.animate(withDuration: 0.8,
-//           animations: {
-        
         UIView.animate(withDuration: 0.6, delay: 0, options: [.repeat,.autoreverse,.allowUserInteraction], animations: {
             self.startButtonOutlet.transform = CGAffineTransform(scaleX: 1.3, y: 1.3)
 
