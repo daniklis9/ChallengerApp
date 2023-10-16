@@ -32,9 +32,6 @@ class ResultsVC: UIViewController {
     }
     
     @IBAction func newGameButtonAction() {
-//        dismiss(animated: true, completion: nil)
-//        super.viewWillDisappear(true)
-//        self.navigationController?.popToRootViewController(animated: false)
         self.performSegue(withIdentifier: "seg", sender: self)
     }
     

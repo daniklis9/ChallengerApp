@@ -147,7 +147,7 @@ class RegistratingVC: UIViewController, UITableViewDataSource, UITableViewDelega
             let textField = alert.textFields?.first
             // Спросить про добавление
             let newPlayerName = textField?.text
-            let newPlayer = User.init(name: newPlayerName!, isAgree: false, points: 0)
+            let newPlayer = User.init(name: newPlayerName!, isAgree: false, points: 0, completedTask: 0)
             if newPlayer.name.isEmpty { return }
             
             // узнать про пробелы в строке

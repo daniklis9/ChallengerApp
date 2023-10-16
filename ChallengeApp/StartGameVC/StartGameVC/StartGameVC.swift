@@ -128,27 +128,19 @@ class StartGameVC: UIViewController {
     // MARK: - ableButtonAction
     
     @IBAction func ableButtonAction() {
-        
         progressViewOutlet.progress = 1
-        
-        
         time = 50
         timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(tick), userInfo: nil, repeats: true)
-        
         currentUser += 1
         
         if currentUser == players.count  {
             players[currentUser - 1].points += 1
-            
             currentUser = 0
         } else {
             players[currentUser - 1].points += 1
-            
-            
         }
         
         print(players)
-        
         pointsLabel.text = String(players[currentUser].points)
         nameLabel.text = players[currentUser].name
         tasksLabel.text = task.randomElement()
@@ -156,11 +148,8 @@ class StartGameVC: UIViewController {
         failedButton.isHidden = true
         completeButton.isHidden = false
         
-        
         for i in players {
-            if i.points == 5 {
-                
-                
+            if i.points == 5 && players.allSatisfy({$0.completedTask == 5}){
                 print("PL = \(players)")
                 print("cr = \(currentUser)")
                 timer.invalidate()
@@ -172,25 +161,15 @@ class StartGameVC: UIViewController {
                 timeLabel.isHidden = true
                 timer.invalidate()
                 guard let vc = storyboard?.instantiateViewController(identifier: "ResultsVC") as? ResultsVC else { return }
-                
-                
-                
-                
                 if players.last?.points == 5 {
                     vc.name = players.last?.name
                 } else {
                     vc.name = players[currentUser - 1].name
-                    
                 }
-                
                 showDetailViewController(vc, sender: nil)
                 
             }
-            
-            
         }
-        
-        
     }
     
     // MARK: - failedButtonAction

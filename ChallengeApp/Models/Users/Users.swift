@@ -7,11 +7,12 @@
 
 import Foundation
 
-struct User {
+struct User: Equatable {
     
     var name: String
     var isAgree: Bool = false
     var points: Int
+    var completedTask: Int
     
 }
   

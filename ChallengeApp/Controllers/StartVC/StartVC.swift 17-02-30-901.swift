@@ -36,7 +36,6 @@ class StartVC: UIViewController {
         gradietLayer.colors = [UIColor.purple.cgColor, UIColor.blue.cgColor]
         gradietLayer.startPoint = CGPoint(x: 0, y: 1)
         gradietLayer.endPoint = CGPoint(x: 2, y: 0)
-//        self.view.layer.addSublayer(gradietLayer)
         self.view.layer.insertSublayer(gradietLayer, at: 0)
 
     
@@ -130,30 +129,10 @@ class StartVC: UIViewController {
         
         UIView.animate(withDuration: 0.6, delay: 0, options: [.repeat,.autoreverse,.allowUserInteraction], animations: {
             self.startButtonOutlet.transform = CGAffineTransform(scaleX: 1.3, y: 1.3)
-     
-            
-            
-//            self.startButtonOutlet.transform.d = CGFloat(1.6)
-//
-//            self.startButtonOutlet.transform.a = CGFloat(1.4)
-//            self.startButtonOutlet.transform = CGAffineTransform.identity
 
            },
         completion: { _ in
         self.startButtonOutlet.transform = CGAffineTransform.identity
-        
-        
-//            UIView.animate(withDuration: 0.8) {
-
-//                btn.transform.a = CGFloat(3.4)
-//                btn.transform.d = CGFloat(2.1)
-//
-//                   btn.transform = CGAffineTransform.identity
-//               }
-//           })
-//   }
-
-//}
         })}
     func animate(newText: String, characterDelay: TimeInterval) {
 

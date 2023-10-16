@@ -22,17 +22,13 @@ class CategoriesVC: UIViewController {
         super.viewDidLoad()
         print(tasks.count)
         settingsUICategoriesVC(view: view, collectionView: collectionViewOutlet)
-        
     }
-    
     
     // MARK: - Actions
     
     @IBAction func backButtonAction() {
         navigationController?.popViewController(animated: false)
     }
-    
-    
 }
     // MARK: - Delegate, DataSource
 
@@ -47,11 +43,8 @@ extension CategoriesVC: UICollectionViewDelegate, UICollectionViewDataSource {
     // MARK: - cellForItemAt
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionViewOutlet.dequeueReusableCell(withReuseIdentifier: "Cell", for: indexPath) as! CollectionViewCell
-        
-        
         cell.labelCategNameOutlet.text = tasks[indexPath.row].category
         cell.settingsCell(cell: cell)
-        
         return cell
     }
     
@@ -59,22 +52,16 @@ extension CategoriesVC: UICollectionViewDelegate, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
         guard let newVC = storyboard?.instantiateViewController(withIdentifier: "StartGameVC") as? StartGameVC else { return }
-        
         newVC.task = tasks[indexPath.row].tasks
         newVC.players = players
-        
         show(newVC, sender: nil)
-        
-        
     }
 }
 
 func settingsUICategoriesVC(view: UIView, collectionView: UICollectionView) {
-    
+
     let gradietLayer = CAGradientLayer()
     gradietLayer.frame = view.bounds
-    
-    
     gradietLayer.colors = [UIColor.purple.cgColor, UIColor.blue.cgColor]
     gradietLayer.startPoint = CGPoint(x: 0, y: 1)
     gradietLayer.endPoint = CGPoint(x: 2, y: 0)
